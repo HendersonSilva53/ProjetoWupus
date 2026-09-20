@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-tema="claro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WUP.US</title>
+  <meta name="description" content="Abra a solicitação de conserto do seu celular, notebook, impressora ou TV, receba estimativa de prazo e valor na hora e acompanhe o serviço pelo número do protocolo.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="pular-para-conteudo" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ============================================================
+       CABEÇALHO
+       ============================================================ -->
+  <header class="cabecalho" id="cabecalho">
+    <div class="container cabecalho__interno">
+      <a class="cabecalho__marca" href="#inicio">
+        <img src="img/logo-wupus.svg" alt="WUP.US" width="152" height="27" id="logo-cabecalho">
+      </a>
+
+      <nav class="navegacao" id="navegacao" aria-label="Navegação principal">
+        <ul class="navegacao__lista">
+          <li><a class="navegacao__link" href="#servicos">Serviços</a></li>
+          <li><a class="navegacao__link" href="#como-funciona">Como funciona</a></li>
+          <li><a class="navegacao__link" href="#solicitar">Solicitar</a></li>
+          <li><a class="navegacao__link" href="#consulta">Acompanhar</a></li>
+          <li><a class="navegacao__link" href="#duvidas">Dúvidas</a></li>
+        </ul>
+      </nav>
+
+      <div class="cabecalho__acoes">
+        <button class="botao-tema" id="btn-tema" type="button" aria-pressed="false">
+          <span class="botao-tema__texto">Tema escuro</span>
+        </button>
+        <button class="botao-menu" id="btn-menu" type="button" aria-expanded="false" aria-controls="navegacao">
+          <span class="botao-menu__barras" aria-hidden="true"></span>
+          <span class="visualmente-oculto">Abrir menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" id="inicio">
+      <div class="container hero__interno">
+        <div class="hero__texto">
+          <h1 class="hero__titulo">Deixe o aparelho na bancada e acompanhe o conserto pelo protocolo.</h1>
+          <p class="hero__descricao">
+            Celular, notebook, impressora ou a TV da sala. Você descreve o defeito aqui,
+            o site estima prazo e faixa de valor antes de enviar, e o andamento fica
+            disponível a qualquer hora pelo número do protocolo.
+          </p>
+
+          <div class="hero__acoes">
+            <a class="botao botao--primario" href="#solicitar">Abrir solicitação</a>
+            <a class="botao botao--secundario" href="#consulta">Consultar protocolo</a>
+          </div>
+
+          <p class="hero__nota">
+            Sua senha continua sendo sua. A bancada só pede acesso quando o teste exige,
+            e o aparelho volta sem nada copiado.
+          </p>
+        </div>
+
+        <aside class="cartao-os" aria-label="Exemplo de ordem de serviço">
+          <div class="cartao-os__topo">
+            <p class="cartao-os__rotulo">Ordem de serviço</p>
+            <p class="cartao-os__protocolo">WUP-2026-0007</p>
+          </div>
+
+          <dl class="cartao-os__dados">
+            <div class="cartao-os__item">
+              <dt>Equipamento</dt>
+              <dd>Notebook Acer Aspire A315</dd>
+            </div>
+            <div class="cartao-os__item">
+              <dt>Serviço</dt>
+              <dd>Troca de tela</dd>
+            </div>
+            <div class="cartao-os__item">
+              <dt>Prioridade</dt>
+              <dd><span class="etiqueta etiqueta--alta">Alta</span></dd>
+            </div>
+            <div class="cartao-os__item">
+              <dt>Aberta em</dt>
+              <dd><time datetime="2026-09-17">17 de setembro</time></dd>
+            </div>
+          </dl>
+
+          <ol class="linha-tempo linha-tempo--compacta">
+            <li class="linha-tempo__etapa linha-tempo__etapa--concluida">Recebido</li>
+            <li class="linha-tempo__etapa linha-tempo__etapa--concluida">Em diagnóstico</li>
+            <li class="linha-tempo__etapa linha-tempo__etapa--atual" aria-current="step">Orçamento enviado</li>
+            <li class="linha-tempo__etapa">Em reparo</li>
+            <li class="linha-tempo__etapa">Pronto para retirada</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVIÇOS
+         ============================================================ -->
+    <section class="secao secao--alternada" id="servicos">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <h2 class="secao__titulo">Serviços</h2>
+          <p class="secao__descricao">
+            Os valores abaixo são o ponto de partida do orçamento. O número final sai depois
+            do diagnóstico e só segue com a sua aprovação.
+          </p>
+        </header>
+
+        <div class="controles">
+          <div class="campo campo--busca">
+            <label class="campo__rotulo" for="busca-servicos">Buscar serviço</label>
+            <input class="campo__entrada" type="search" id="busca-servicos"
+                   placeholder="bateria, tela, limpeza..." autocomplete="off">
+          </div>
+
+          <div class="filtros" id="filtros" role="group" aria-label="Filtrar por tipo de equipamento">
+            <button class="filtro filtro--ativo" type="button" data-categoria="todos" aria-pressed="true">Todos</button>
+            <button class="filtro" type="button" data-categoria="Smartphone e tablet" aria-pressed="false">Smartphone e tablet</button>
+            <button class="filtro" type="button" data-categoria="Notebook" aria-pressed="false">Notebook</button>
+            <button class="filtro" type="button" data-categoria="Desktop" aria-pressed="false">Desktop</button>
+            <button class="filtro" type="button" data-categoria="Impressora e periféricos" aria-pressed="false">Impressora e periféricos</button>
+            <button class="filtro" type="button" data-categoria="TV e eletrodomésticos" aria-pressed="false">TV e eletrodomésticos</button>
+          </div>
+        </div>
+
+        <p class="contador" id="contador-servicos" role="status"></p>
+
+        <ul class="catalogo" id="lista-servicos"></ul>
+
+        <p class="estado-vazio" id="servicos-vazio" hidden>
+          Nenhum serviço encontrado com esse termo. Tente "bateria", "tela" ou limpe a busca.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         COMO FUNCIONA
+         ============================================================ -->
+    <section class="secao" id="como-funciona">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <h2 class="secao__titulo">Como funciona</h2>
+          <p class="secao__descricao">Quatro passos entre o defeito e a retirada.</p>
+        </header>
+
+        <ol class="passos">
+          <li class="passo">
+            <h3 class="passo__titulo">Descreva o defeito</h3>
+            <p>Conte o que o aparelho faz e o que parou de fazer. Quanto mais detalhe,
+               menos ida e volta depois.</p>
+          </li>
+          <li class="passo">
+            <h3 class="passo__titulo">Veja prazo e valor</h3>
+            <p>O resumo ao lado do formulário calcula a estimativa conforme o serviço
+               e a prioridade que você escolher.</p>
+          </li>
+          <li class="passo">
+            <h3 class="passo__titulo">Entregue ou agende a coleta</h3>
+            <p>Você leva o aparelho na loja ou pede a retirada em domicílio dentro de
+               Petrolina e Juazeiro.</p>
+          </li>
+          <li class="passo">
+            <h3 class="passo__titulo">Acompanhe pelo protocolo</h3>
+            <p>Cada etapa concluída aparece na consulta. Nada de ligar para saber se
+               já ficou pronto.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SOLICITAÇÃO
+         ============================================================ -->
+    <section class="secao secao--alternada" id="solicitar">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <h2 class="secao__titulo">Abrir solicitação</h2>
+          <p class="secao__descricao">
+            Os campos marcados com asterisco são obrigatórios. O protocolo aparece
+            assim que você enviar.
+          </p>
+        </header>
+
+        <div class="solicitacao">
+          <form class="formulario" id="form-solicitacao" novalidate>
+            <fieldset class="grupo">
+              <legend class="grupo__titulo">Seus dados</legend>
+
+              <div class="campo">
+                <label class="campo__rotulo" for="nome">Nome completo *</label>
+                <input class="campo__entrada" type="text" id="nome" name="nome" autocomplete="name">
+                <span class="campo__erro" id="erro-nome"></span>
+              </div>
+
+              <div class="campo-duplo">
+                <div class="campo">
+                  <label class="campo__rotulo" for="email">E-mail *</label>
+                  <input class="campo__entrada" type="email" id="email" name="email" autocomplete="email">
+                  <span class="campo__erro" id="erro-email"></span>
+                </div>
+
+                <div class="campo">
+                  <label class="campo__rotulo" for="telefone">Telefone *</label>
+                  <input class="campo__entrada" type="tel" id="telefone" name="telefone"
+                         inputmode="numeric" maxlength="15" placeholder="(87) 99999-9999" autocomplete="tel">
+                  <span class="campo__erro" id="erro-telefone"></span>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="grupo">
+              <legend class="grupo__titulo">Equipamento</legend>
+
+              <div class="campo-duplo">
+                <div class="campo">
+                  <label class="campo__rotulo" for="equipamento">Tipo de equipamento *</label>
+                  <select class="campo__entrada" id="equipamento" name="equipamento">
+                    <option value="">Selecione</option>
+                    <option value="Smartphone e tablet">Smartphone e tablet</option>
+                    <option value="Notebook">Notebook</option>
+                    <option value="Desktop">Desktop</option>
+                    <option value="Impressora e periféricos">Impressora e periféricos</option>
+                    <option value="TV e eletrodomésticos">TV e eletrodomésticos</option>
+                  </select>
+                  <span class="campo__erro" id="erro-equipamento"></span>
+                </div>
+
+                <div class="campo">
+                  <label class="campo__rotulo" for="marca-modelo">Marca e modelo *</label>
+                  <input class="campo__entrada" type="text" id="marca-modelo" name="marca-modelo"
+                         placeholder="Samsung A54, Dell Inspiron 15...">
+                  <span class="campo__erro" id="erro-marca-modelo"></span>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label class="campo__rotulo" for="servico">Serviço desejado *</label>
+                <select class="campo__entrada" id="servico" name="servico">
+                  <option value="">Escolha o tipo de equipamento primeiro</option>
+                </select>
+                <span class="campo__ajuda">A lista muda conforme o equipamento selecionado.</span>
+                <span class="campo__erro" id="erro-servico"></span>
+              </div>
+
+              <div class="campo">
+                <label class="campo__rotulo" for="descricao">Descrição do problema *</label>
+                <textarea class="campo__entrada campo__entrada--area" id="descricao" name="descricao"
+                          rows="5" maxlength="500"
+                          placeholder="O que acontece quando você liga o aparelho? Desde quando? Já caiu, molhou ou passou por outro conserto?"></textarea>
+                <span class="campo__contador" id="contador-descricao">0 de 500 caracteres</span>
+                <span class="campo__erro" id="erro-descricao"></span>
+              </div>
+            </fieldset>
+
+            <fieldset class="grupo">
+              <legend class="grupo__titulo">Atendimento</legend>
+
+              <fieldset class="subgrupo">
+                <legend class="subgrupo__titulo">Prioridade *</legend>
+                <div class="opcoes">
+                  <label class="opcao">
+                    <input type="radio" name="prioridade" value="normal" checked>
+                    <span class="opcao__conteudo">
+                      <span class="opcao__nome">Normal</span>
+                      <span class="opcao__detalhe">Entra na fila por ordem de chegada.</span>
+                    </span>
+                  </label>
+                  <label class="opcao">
+                    <input type="radio" name="prioridade" value="alta">
+                    <span class="opcao__conteudo">
+                      <span class="opcao__nome">Alta</span>
+                      <span class="opcao__detalhe">Prazo menor, acréscimo de 10% no orçamento.</span>
+                    </span>
+                  </label>
+                  <label class="opcao">
+                    <input type="radio" name="prioridade" value="urgente">
+                    <span class="opcao__conteudo">
+                      <span class="opcao__nome">Urgente</span>
+                      <span class="opcao__detalhe">Vai direto para a bancada, acréscimo de 20%.</span>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="subgrupo">
+                <legend class="subgrupo__titulo">Como o aparelho chega até nós *</legend>
+                <div class="opcoes opcoes--linha">
+                  <label class="opcao">
+                    <input type="radio" name="entrega" value="loja" checked>
+                    <span class="opcao__conteudo">
+                      <span class="opcao__nome">Levo na loja</span>
+                    </span>
+                  </label>
+                  <label class="opcao">
+                    <input type="radio" name="entrega" value="coleta">
+                    <span class="opcao__conteudo">
+                      <span class="opcao__nome">Quero coleta em domicílio</span>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="campo campo--checkbox">
+                <label class="opcao opcao--simples">
+                  <input type="checkbox" id="termos" name="termos">
+                  <span class="opcao__conteudo">
+                    <span class="opcao__nome">Autorizo o contato sobre esta solicitação *</span>
+                    <span class="opcao__detalhe">Usamos seu telefone e e-mail apenas para falar deste serviço.</span>
+                  </span>
+                </label>
+                <span class="campo__erro" id="erro-termos"></span>
+              </div>
+            </fieldset>
+
+            <div class="formulario__rodape">
+              <button class="botao botao--primario" type="submit">Abrir solicitação</button>
+              <button class="botao botao--texto" type="reset" id="btn-limpar-form">Limpar formulário</button>
+            </div>
+
+            <p class="formulario__status" id="status-form" role="alert"></p>
+          </form>
+
+          <aside class="resumo" id="resumo" aria-label="Resumo da solicitação">
+            <h3 class="resumo__titulo">Estimativa</h3>
+
+            <p class="resumo__vazio" id="resumo-vazio">
+              Escolha o equipamento e o serviço para ver prazo e faixa de valor aqui.
+            </p>
+
+            <dl class="resumo__dados" id="resumo-dados" hidden>
+              <div class="resumo__item">
+                <dt>Serviço</dt>
+                <dd id="resumo-servico"></dd>
+              </div>
+              <div class="resumo__item">
+                <dt>Prioridade</dt>
+                <dd id="resumo-prioridade"></dd>
+              </div>
+              <div class="resumo__item resumo__item--destaque">
+                <dt>Prazo estimado</dt>
+                <dd id="resumo-prazo"></dd>
+              </div>
+              <div class="resumo__item resumo__item--destaque">
+                <dt>Faixa de orçamento</dt>
+                <dd id="resumo-orcamento"></dd>
+              </div>
+            </dl>
+
+            <p class="resumo__aviso">
+              Estimativa automática. O valor fechado sai depois do diagnóstico e precisa
+              da sua aprovação antes de qualquer reparo.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONSULTA DE PROTOCOLO
+         ============================================================ -->
+    <section class="secao" id="consulta">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <h2 class="secao__titulo">Acompanhar serviço</h2>
+          <p class="secao__descricao">
+            Informe o protocolo recebido na abertura da solicitação.
+          </p>
+        </header>
+
+        <div class="consulta">
+          <form class="consulta__form" id="form-consulta" novalidate>
+            <div class="campo">
+              <label class="campo__rotulo" for="protocolo-consulta">Número do protocolo</label>
+              <div class="consulta__linha">
+                <input class="campo__entrada campo__entrada--mono" type="text"
+                       id="protocolo-consulta" placeholder="WUP-2026-0001" autocomplete="off">
+                <button class="botao botao--primario" type="submit">Consultar</button>
+              </div>
+              <span class="campo__erro" id="erro-protocolo"></span>
+            </div>
+          </form>
+
+          <div class="consulta__resultado" id="resultado-consulta" aria-live="polite"></div>
+
+          <section class="minhas" id="minhas-solicitacoes">
+            <h3 class="minhas__titulo">Solicitações abertas neste navegador</h3>
+            <ul class="minhas__lista" id="lista-protocolos"></ul>
+            <button class="botao botao--texto" type="button" id="btn-limpar">
+              Limpar dados deste navegador
+            </button>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DÚVIDAS
+         ============================================================ -->
+    <section class="secao secao--alternada" id="duvidas">
+      <div class="container container--estreito">
+        <header class="secao__cabecalho">
+          <h2 class="secao__titulo">Dúvidas frequentes</h2>
+        </header>
+
+        <div class="faq">
+          <details class="faq__item">
+            <summary class="faq__pergunta">Preciso passar a senha do aparelho?</summary>
+            <p class="faq__resposta">
+              Só quando o teste depende de entrar no sistema, como em defeito de tela,
+              touch ou bateria. Nesses casos o técnico pede na hora da entrega e anota na
+              ordem de serviço. Fora isso, o aparelho é aberto e testado sem acesso aos
+              seus dados.
+            </p>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__pergunta">O orçamento do site é o valor final?</summary>
+            <p class="faq__resposta">
+              Não. É uma faixa calculada pelo tipo de serviço e pela prioridade, para você
+              ter uma ideia antes de sair de casa. O valor fechado sai depois do
+              diagnóstico e o reparo só começa com a sua aprovação.
+            </p>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__pergunta">E se o conserto não compensar?</summary>
+            <p class="faq__resposta">
+              A gente informa o custo estimado e devolve o aparelho sem cobrança de reparo.
+              Só o diagnóstico é cobrado, e ele é abatido caso você decida seguir com o serviço.
+            </p>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__pergunta">Vocês fazem backup antes da formatação?</summary>
+            <p class="faq__resposta">
+              Sim, em mídia da própria oficina, e apagamos a cópia sete dias depois da
+              retirada. Se preferir, traga um HD externo e a cópia fica direto com você.
+            </p>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__pergunta">Perdi o número do protocolo. E agora?</summary>
+            <p class="faq__resposta">
+              Os protocolos abertos neste navegador ficam listados na seção de acompanhamento.
+              Se você usou outro aparelho para abrir a solicitação, basta ligar para a loja
+              com o nome e o modelo do equipamento.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       RODAPÉ
+       ============================================================ -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <div class="rodape__marca">
+        <img src="img/logo-wupus-escuro.svg" alt="WUP.US" width="140" height="25">
+        <p class="rodape__texto">
+          Assistência técnica em eletrônicos. Celular, computador, impressora,
+          TV e eletrodoméstico na mesma bancada.
+        </p>
+      </div>
+
+      <div class="rodape__bloco">
+        <h2 class="rodape__titulo">Loja</h2>
+        <address class="rodape__endereco">
+          Rua Projetada, 148 — Centro<br>
+          Petrolina, PE<br>
+          <a href="tel:+558730001234">(87) 3000-1234</a>
+        </address>
+      </div>
+
+      <div class="rodape__bloco">
+        <h2 class="rodape__titulo">Atendimento</h2>
+        <p class="rodape__texto">
+          Segunda a sexta, 8h às 18h<br>
+          Sábado, 8h às 12h
+        </p>
+      </div>
+
+      <nav class="rodape__bloco" aria-label="Navegação do rodapé">
+        <h2 class="rodape__titulo">Navegação</h2>
+        <ul class="rodape__lista">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#solicitar">Abrir solicitação</a></li>
+          <li><a href="#consulta">Acompanhar serviço</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="rodape__aviso container">
+      Projeto acadêmico desenvolvido para a disciplina de Projeto Integrador.
+      Empresa e dados de contato são fictícios.
+    </p>
+  </footer>
+
+  <!-- ============================================================
+       MODAL DE CONFIRMAÇÃO
+       ============================================================ -->
+  <dialog class="modal" id="modal" aria-labelledby="modal-titulo">
+    <div class="modal__conteudo">
+      <h2 class="modal__titulo" id="modal-titulo">Solicitação aberta</h2>
+      <p class="modal__texto">Guarde o número abaixo para acompanhar o serviço.</p>
+
+      <p class="modal__protocolo" id="modal-protocolo"></p>
+
+      <button class="botao botao--secundario botao--bloco" type="button" id="btn-copiar">
+        Copiar protocolo
+      </button>
+
+      <dl class="modal__resumo" id="modal-resumo"></dl>
+
+      <div class="modal__acoes">
+        <button class="botao botao--primario" type="button" id="btn-ir-consulta">Acompanhar agora</button>
+        <button class="botao botao--texto" type="button" id="btn-fechar-modal">Fechar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
