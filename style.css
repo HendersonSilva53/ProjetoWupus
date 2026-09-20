@@ -954,7 +954,7 @@ button { font: inherit; }
 .rodape {
   padding-block: var(--e8) var(--e5);
   background-color: var(--carvao);
-  color: var(--areia);
+  color: #F6EDE4;
 }
 
 [data-tema="escuro"] .rodape { background-color: #0C1116; }
@@ -972,7 +972,7 @@ button { font: inherit; }
 
 .rodape__titulo {
   margin-bottom: var(--e3);
-  color: var(--areia);
+  color: #F6EDE4;
   font-size: 0.85rem;
   font-weight: 600;
 }
