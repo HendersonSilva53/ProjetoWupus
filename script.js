@@ -8,7 +8,7 @@
    6.  Formulário: estimativa ao vivo
    7.  Envio e modal
    8.  Consulta de protocolo
-   9.  Tema, menu e navegação
+   9.  Menu e navegação
    10. Inicialização
    ============================================================= */
 
@@ -24,14 +24,13 @@ const ANO_PROTOCOLO = 2026;
 
 const CHAVE_SOLICITACOES = "wupus:solicitacoes";
 const CHAVE_CONTADOR = "wupus:contador";
-const CHAVE_TEMA = "wupus:tema";
 
 const CATEGORIAS = {
-  "Smartphone e tablet": { icone: "img/icone-smartphone.svg", cor: "#0B4FA2" },
-  "Notebook": { icone: "img/icone-notebook.svg", cor: "#1187D6" },
-  "Desktop": { icone: "img/icone-desktop.svg", cor: "#38C6F4" },
-  "Impressora e periféricos": { icone: "img/icone-impressora.svg", cor: "#6E7780" },
-  "TV e eletrodomésticos": { icone: "img/icone-tv.svg", cor: "#2B3138" }
+  "Smartphone e tablet": { icone: "img/icone-smartphone.svg" },
+  "Notebook": { icone: "img/icone-notebook.svg" },
+  "Desktop": { icone: "img/icone-desktop.svg" },
+  "Impressora e periféricos": { icone: "img/icone-impressora.svg" },
+  "TV e eletrodomésticos": { icone: "img/icone-tv.svg" }
 };
 
 const SERVICOS = [
@@ -318,7 +317,6 @@ function montarCartaoServico(servico) {
 
   const item = document.createElement("li");
   item.className = "servico";
-  item.style.setProperty("--faixa", categoria.cor);
 
   const topo = document.createElement("div");
   topo.className = "servico__topo";
@@ -874,44 +872,7 @@ function limparDados() {
   document.getElementById("resultado-consulta").textContent = "";
 }
 
-/* ===== 9. Tema, menu e navegação ============================= */
-
-function aplicarTema(tema) {
-  const botao = document.getElementById("btn-tema");
-  const logo = document.getElementById("logo-cabecalho");
-  const escuro = tema === "escuro";
-
-  document.documentElement.dataset.tema = tema;
-  botao.setAttribute("aria-pressed", String(escuro));
-  botao.querySelector(".botao-tema__texto").textContent = escuro ? "Tema claro" : "Tema escuro";
-
-  /* A logo tem duas versões porque as letras escuras sumiriam no fundo escuro. */
-  logo.src = escuro ? "img/logo-wupus-escuro.svg" : "img/logo-wupus.svg";
-
-  try {
-    localStorage.setItem(CHAVE_TEMA, tema);
-  } catch (erro) {
-    /* Sem armazenamento a escolha vale só para esta visita. */
-  }
-}
-
-function iniciarTema() {
-  let salvo = null;
-
-  try {
-    salvo = localStorage.getItem(CHAVE_TEMA);
-  } catch (erro) {
-    salvo = null;
-  }
-
-  if (salvo) {
-    aplicarTema(salvo);
-    return;
-  }
-
-  const prefereEscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  aplicarTema(prefereEscuro ? "escuro" : "claro");
-}
+/* ===== 9. Menu e navegação =================================== */
 
 function alternarMenu(forcarFechado) {
   const navegacao = document.getElementById("navegacao");
@@ -948,14 +909,6 @@ function iniciarScrollSpy() {
 function medirCabecalho() {
   const altura = document.getElementById("cabecalho").offsetHeight;
   document.documentElement.style.setProperty("--altura-cabecalho", `${altura}px`);
-}
-
-function iniciarSombraCabecalho() {
-  const cabecalho = document.getElementById("cabecalho");
-
-  window.addEventListener("scroll", function () {
-    cabecalho.classList.toggle("cabecalho--fixo", window.scrollY > 8);
-  }, { passive: true });
 }
 
 /* ===== 10. Inicialização ===================================== */
@@ -1058,12 +1011,7 @@ function registrarEventos() {
 
   document.getElementById("btn-limpar").addEventListener("click", limparDados);
 
-  /* Tema e menu */
-  document.getElementById("btn-tema").addEventListener("click", function () {
-    const atual = document.documentElement.dataset.tema;
-    aplicarTema(atual === "escuro" ? "claro" : "escuro");
-  });
-
+  /* Menu */
   document.getElementById("btn-menu").addEventListener("click", function () {
     alternarMenu(false);
   });
@@ -1078,7 +1026,6 @@ function registrarEventos() {
 }
 
 function iniciar() {
-  iniciarTema();
   medirCabecalho();
   semearExemplos();
   renderizarServicos();
@@ -1088,7 +1035,6 @@ function iniciar() {
   renderizarMeusProtocolos();
   registrarEventos();
   iniciarScrollSpy();
-  iniciarSombraCabecalho();
 
   window.addEventListener("resize", medirCabecalho);
 
