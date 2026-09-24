@@ -366,8 +366,7 @@ button { font: inherit; }
 }
 
 /* ===== 7. Seções e catálogo ================================== */
-/* Todas as seções compartilham o fundo areia do cabeçalho: nenhuma faixa
-   alternada e nenhuma linha entre elas — o espaçamento faz a separação. */
+
 .secao { padding-block: var(--e9); }
 
 .secao__cabecalho { margin-bottom: var(--e6); }

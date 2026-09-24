@@ -903,9 +903,7 @@ function iniciarScrollSpy() {
   });
 }
 
-/* O cabeçalho é fixo no topo, então a rolagem por âncora precisa descontar a
-   altura dele. Medir evita que o valor saia do lugar quando o menu quebra em
-   duas linhas ou a fonte carrega com outra métrica. */
+
 function medirCabecalho() {
   const altura = document.getElementById("cabecalho").offsetHeight;
   document.documentElement.style.setProperty("--altura-cabecalho", `${altura}px`);
